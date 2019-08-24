@@ -83,3 +83,10 @@ print(df)
 # three     2   102
 # four      3   103
 # five    100   119
+
+
+# at[]用于获取指定index内容的元素值
+print(df.at['two', 'col1']) # 1
+
+# iat[]用于获取指定index下标的元素值
+print(df.iat[0, 1]) # 101
