@@ -9,12 +9,12 @@ import pandas as pd
 # 这里每一个字典代表每一行，第一行因为没有c，所以为NaN
 # 这种构造方式的好处之一就是方便认为给df添加一行
 data = [{'a' : 1, 'b' : 2}, {'a' : 2, 'b' : 3, 'c' : 4}]
-df = pd.DataFrame(data)
+df = pd.DataFrame(data, index = [2, 3]) # 可以指定index内容
 print(df)
 
 #    a  b    c
-# 0  1  2  NaN
-# 1  2  3  4.0
+# 2  1  2  NaN
+# 3  2  3  4.0
 
 # 如果强行指定col或者index呢？
 # 结论：Pandas中，如果用字典构造系列和数据帧，如果强行指定index或者column，
@@ -29,7 +29,7 @@ print(df1)
 # 0  1  2
 # 1  2  3
 
-# 不仅c胡烈，而且只有a和d，而d在字典中没有对应的值，所以为NaN
+# 不仅c忽略，而且只有a和d，而d在字典中没有对应的值，所以为NaN
 df2 = pd.DataFrame(data, columns = ['a', 'd'])
 print(df2)
 
